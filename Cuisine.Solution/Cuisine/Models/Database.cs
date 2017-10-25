@@ -1,8 +1,8 @@
 using System;
 using MySql.Data.MySqlClient;
-using Rename;
+using Cuisine;
 
-namespace Rename.Models
+namespace Cuisine.Models
 {
   public class DB
   {
