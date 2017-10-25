@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+<form action='/cuisine/@Model["cuisine"].Id/restaurant/new' method="post">
+  <label for="restaurant-name">Enter Restaurant Name:</label>
+  <input type="text" name="restaurant-name" id="restaurant-name">
+  <label for="restaurant-phone">Enter Restaurant Phone Number:</label>
+  <input type="text" name="restaurant-phone" id="restaurant-phone">
+  <label for="restaurant-address">Enter Restaurant Address:</label>
+  <input type="text" name="restaurant-address" id="restaurant-address">
+  <input type="hidden" name="cuisine-id" id="cuisine-id" value='@Model["cuisine"].Id'>
+  <label for="restaurant-dish">Enter Restaurants Best Dish:</label>
+  <input type="text" name="restaurant-dish" id="restaurant-dish">
+  <button type="submit" name="button">Add</button>
+</form>

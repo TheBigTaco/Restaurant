@@ -12,7 +12,7 @@ namespace Cuisine.Models.Tests
     public void Dispose()
     {
       Restaurant.DeleteAll();
-      Type.DeleteAll();
+      Types.DeleteAll();
     }
     public RestaurantTests()
     {
@@ -61,34 +61,34 @@ namespace Cuisine.Models.Tests
       Assert.AreEqual(firstRestaurant, foundRestaurant);
     }
     [TestMethod]
-    public void GetRestaurants_RetrievesAllRestaurantsWithType_RestaurantList()
+    public void GetRestaurants_RetrievesAllRestaurantsWithTypes_RestaurantList()
     {
-      Type testType = new Type("Japanese");
-      testType.Save();
-      Restaurant firstRestaurant = new Restaurant("Shigezo", 5555555555, "SW Salmon Street", testType.Id, "Fire Cracker Roll");
-      Restaurant secondRestaurant = new Restaurant("Shigezo", 5555555555, "SW Salmon Street", testType.Id, "Fire Cracker Roll");
+      Types testTypes = new Types("Japanese");
+      testTypes.Save();
+      Restaurant firstRestaurant = new Restaurant("Shigezo", 5555555555, "SW Salmon Street", testTypes.Id, "Fire Cracker Roll");
+      Restaurant secondRestaurant = new Restaurant("Shigezo", 5555555555, "SW Salmon Street", testTypes.Id, "Fire Cracker Roll");
       firstRestaurant.Save();
       secondRestaurant.Save();
 
 
       List<Restaurant> testRestaurantList = new List<Restaurant> {firstRestaurant, secondRestaurant};
-      List<Restaurant> resultRestaurantList = testType.GetRestaurants();
+      List<Restaurant> resultRestaurantList = testTypes.GetRestaurants();
 
       CollectionAssert.AreEqual(testRestaurantList, resultRestaurantList);
     }
     [TestMethod]
     public void GetRestaurants_MakeSureListOrderedByName_RestaurantList()
     {
-      Type testType = new Type("Japanese");
-      testType.Save();
-      Restaurant firstRestaurant = new Restaurant("Shigezo", 5555555555, "SW Salmon Street", testType.Id, "Fire Cracker Roll");
-      Restaurant secondRestaurant = new Restaurant("Andina", 5555555555, "SW Salmon Street", testType.Id, "Fire Cracker Roll");
+      Types testTypes = new Types("Japanese");
+      testTypes.Save();
+      Restaurant firstRestaurant = new Restaurant("Shigezo", 5555555555, "SW Salmon Street", testTypes.Id, "Fire Cracker Roll");
+      Restaurant secondRestaurant = new Restaurant("Andina", 5555555555, "SW Salmon Street", testTypes.Id, "Fire Cracker Roll");
       firstRestaurant.Save();
       secondRestaurant.Save();
 
 
       List<Restaurant> testRestaurantList = new List<Restaurant> {secondRestaurant, firstRestaurant};
-      List<Restaurant> resultRestaurantList = testType.GetRestaurants();
+      List<Restaurant> resultRestaurantList = testTypes.GetRestaurants();
 
       CollectionAssert.AreEqual(testRestaurantList, resultRestaurantList);
     }

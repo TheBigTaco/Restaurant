@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+<h3>Here are all the restaurants that serve @Model["cuisine"].Name food.</h3>
+<ol>
+  @foreach(var restaurant in @Model["restaurant"])
+  {
+    <li><a href='/cuisine/@Model["cuisine"].Id/restaurant/@restaurant.Id'>@restaurant.Name</a></li>
+  }
+</ol>
+<p><a href='/cuisine/@Model["cuisine"].Id/restaurant'>Add another restaurant</a></p>
+<p><a href="/">Return Home</a></p>

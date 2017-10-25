@@ -5,27 +5,27 @@ using MySql.Data.MySqlClient;
 
 namespace Cuisine.Models
 {
-  public class Type
+  public class Types
   {
     public string Name {get;}
     public int Id {get;set;}
 
-    public Type(string name, int id = 0)
+    public Types(string name, int id = 0)
     {
       Name = name;
       Id = id;
     }
-    public override bool Equals(System.Object otherType)
+    public override bool Equals(System.Object otherTypes)
     {
-      if (!(otherType is Type))
+      if (!(otherTypes is Types))
       {
         return false;
       }
 
       else
       {
-        Type newType = (Type) otherType;
-        return this.Id.Equals(newType.Id);
+        Types newTypes = (Types) otherTypes;
+        return this.Id.Equals(newTypes.Id);
       }
     }
 
@@ -35,9 +35,9 @@ namespace Cuisine.Models
     }
 
 
-    public static List<Type> GetAll()
+    public static List<Types> GetAll()
     {
-      List<Type> allTypes = new List<Type> {};
+      List<Types> allTypess = new List<Types> {};
       MySqlConnection conn = DB.Connection();
       conn.Open();
       var cmd = conn.CreateCommand() as MySqlCommand;
@@ -45,17 +45,17 @@ namespace Cuisine.Models
       var rdr = cmd.ExecuteReader() as MySqlDataReader;
       while(rdr.Read())
       {
-        int TypeId = rdr.GetInt32(0);
-        string TypeName = rdr.GetString(1);
-        Type newType = new Type(TypeName, TypeId);
-        allTypes.Add(newType);
+        int TypesId = rdr.GetInt32(0);
+        string TypesName = rdr.GetString(1);
+        Types newTypes = new Types(TypesName, TypesId);
+        allTypess.Add(newTypes);
       }
       conn.Close();
       if (conn != null)
       {
           conn.Dispose();
       }
-      return allTypes;
+      return allTypess;
     }
 
     public void Save()
@@ -80,7 +80,7 @@ namespace Cuisine.Models
       }
     }
 
-    public static Type Find(int id)
+    public static Types Find(int id)
     {
       MySqlConnection conn = DB.Connection();
       conn.Open();
@@ -103,13 +103,13 @@ namespace Cuisine.Models
           typeName = rdr.GetString(1);
       }
 
-      Type foundType = new Type(typeName, typeId);
+      Types foundTypes = new Types(typeName, typeId);
       conn.Close();
       if (conn != null)
       {
           conn.Dispose();
       }
-      return foundType;
+      return foundTypes;
     }
 
     public List<Restaurant> GetRestaurants()
