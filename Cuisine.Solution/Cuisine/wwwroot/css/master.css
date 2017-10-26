@@ -13,22 +13,125 @@ body {
   background-image: url("/img/wellbackground.jpg");
   text-shadow: 4px;
   font-size: 500px;*/
-  margin-left: -80px;
+  margin-left: -250px;
 
-}
-
-#wellbackground {
-  image-orientation: contain;
-  width: 300px;
-  height: 150px;
-}
-
-#bodytext:focus {
-  outline: none;
 
 }
 
 #bodytext {
     background-color: rgba(175, 191, 207, 0.0);
     text-align: center;
+}
+li {
+  font-size: 25px;
+}
+
+#cuisinepageheader {
+  background-color: rgba(48, 73, 63, 0.6);
+  color:white;
+  padding: 30px;
+  margin-left: -60px;
+  margin-right: -30px;
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+#cuisinepagebody {
+  margin-left: 25px;
+}
+
+#underline {
+  text-decoration: underline;
+}
+.addcuisineinputbox{
+    background-color: rgba(48, 73, 63, 0.6);
+    color: white;
+    padding: 30px;
+    margin-left: -60px;
+    margin-right: -30px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 30px;
+    margin-top: 20%;
+}
+button, input {
+  border-radius: 6px;
+  color: black;
+  margin-bottom: 50px;
+
+}
+
+#addrestaurantbutton {
+
+  border-radius: 6px;
+  color: black;
+  display:block;
+  margin: 0 auto;
+}
+
+#restaurantdetail {
+  background-color: rgba(48, 73, 63, 0.6);
+  color: white;
+  padding: 30px;
+  margin-left: -60px;
+  margin-right: -30px;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-size: 30px;
+  /*margin-top: 20%;*/
+}
+
+.review {
+  /*border-top: solid darkgrey;*/
+  border-bottom: solid darkgrey;
+}
+
+.boxrestaurantdetail {
+  background-color: rgba(48, 73, 63, 0.6);
+  color: white;
+  padding: 30px;
+  margin-left: -1px;
+  margin-right: -30px;
+  text-align: center;
+  /*padding-top: 50px;*/
+  padding-bottom: 50px;
+  font-size: 30px;
+  margin-top: -2%;
+}
+#reviewsheader {
+  background-color: rgba(48, 73, 63, 0.6);
+  color: white;
+  padding: 30px;
+  /*margin-left: -1px;
+  margin-right: -30px;*/
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 30px;
+
+}
+#blacklinks,a{
+  color:black;
+  margin-top: 60px;
+}
+#smalldescription {
+  font-size: 15px;
+}
+#meddescription {
+  font-size: 20px;
+}
+#review-description{
+  color:black;
+}
+textarea {
+  border-radius: 6px;
+}
+#cuisinetitle {
+  font-size: 65px;
+}
+.cuisinetypes {
+  font-size: 45px;
 }

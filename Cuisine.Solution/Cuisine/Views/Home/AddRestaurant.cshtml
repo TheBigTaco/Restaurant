@@ -1,6 +1,7 @@
 @{
   Layout = "_Layout";
 }
+<div class="addcuisineinputbox well" style="border:none">
 <form action='/cuisine/@Model["cuisine"].Id/restaurant/new' method="post">
   <label for="restaurant-name">Enter Restaurant Name:</label>
   <input type="text" name="restaurant-name" id="restaurant-name">
@@ -11,5 +12,6 @@
   <input type="hidden" name="cuisine-id" id="cuisine-id" value='@Model["cuisine"].Id'>
   <label for="restaurant-dish">Enter Restaurants Best Dish:</label>
   <input type="text" name="restaurant-dish" id="restaurant-dish">
-  <button type="submit" name="button">Add</button>
+  <button id="addrestaurantbutton" type="submit" name="button">Add</button>
 </form>
+</div>
