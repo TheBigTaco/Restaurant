@@ -157,6 +157,36 @@ namespace Cuisine.Models
       return newRestaurant;
     }
 
+    public List<Review> GetReviews()
+    {
+      List<Review> allRestaurantReviews = new List<Review> {};
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"SELECT * FROM review WHERE restaurant_id = @restaurant_id;";
+
+      MySqlParameter restaurantId = new MySqlParameter();
+      restaurantId.ParameterName = "@restaurant_id";
+      restaurantId.Value = this.Id;
+      cmd.Parameters.Add(restaurantId);
+      var rdr = cmd.ExecuteReader() as MySqlDataReader;
+      while(rdr.Read())
+      {
+        int reviewId = rdr.GetInt32(0);
+        string reviewTitle = rdr.GetString(1);
+        string reviewDescription = rdr.GetString(2);
+        int reviewRestaurantId = rdr.GetInt32(3);
+        Review newReview = new Review(reviewTitle, reviewDescription, reviewRestaurantId, reviewId);
+        allRestaurantReviews.Add(newReview);
+      }
+      conn.Close();
+      if (conn != null)
+      {
+          conn.Dispose();
+      }
+      return allRestaurantReviews;
+    }
+
     public static void DeleteAll()
     {
       MySqlConnection conn = DB.Connection();

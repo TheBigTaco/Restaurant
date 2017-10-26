@@ -13,6 +13,7 @@ namespace Cuisine.Models.Tests
     {
       Restaurant.DeleteAll();
       Types.DeleteAll();
+      Review.DeleteAll();
     }
     public RestaurantTests()
     {
