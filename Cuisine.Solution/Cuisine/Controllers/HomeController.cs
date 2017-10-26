@@ -55,8 +55,29 @@ namespace Cuisine.Controllers
       [HttpGet("/cuisine/{cid}/restaurant/{rid}")]
       public ActionResult RestaurantDetail(int cid, int rid)
       {
+        Dictionary<string, object> model = new Dictionary<string, object>();
         Restaurant selectedRestaurant = Restaurant.Find(rid);
-        return View(selectedRestaurant);
+        List<Review> restaurantReviews = selectedRestaurant.GetReviews();
+        model.Add("restaurant", selectedRestaurant);
+        model.Add("review", restaurantReviews);
+        return View(model);
+      }
+      [HttpGet("/cuisine/{cid}/restaurant/{rid}/review")]
+      public ActionResult AddReview(int cid, int rid)
+      {
+        Dictionary<string, object> model = new Dictionary<string, object>();
+        Restaurant selectedRestaurant = Restaurant.Find(rid);
+        List<Review> restaurantReviews = selectedRestaurant.GetReviews();
+        model.Add("restaurant", selectedRestaurant);
+        model.Add("review", restaurantReviews);
+        return View(model);
+      }
+      [HttpPost("/cuisine/{cid}/restaurant/{rid}/review/new")]
+      public ActionResult NewReview(int cid, int rid)
+      {
+        Review newReview = new Review(Request.Form["review-title"], Request.Form["review-description"], int.Parse(Request.Form["restaurant-id"]));
+        newReview.Save();
+        return Redirect("/cuisine/"+cid+"/restaurant/"+rid);
       }
     }
 }

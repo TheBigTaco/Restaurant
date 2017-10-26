@@ -1,0 +1,11 @@
+@{
+  Layout = "_Layout";
+}
+<form action='/cuisine/@Model["restaurant"].CuisineId/restaurant/@Model["restaurant"].Id/review/new' method="post">
+  <label for="review-title">Review Title</label>
+  <input type="text" name="review-title" id="review-title">
+  <label for="review-description">Write Review Here</label>
+  <textarea name="review-description" rows="8" cols="80" id="review-description"></textarea>
+  <input type="hidden" name="restaurant-id" id="restaurant-id" value='@Model["restaurant"].Id'>
+  <button type="submit" name="button">Add</button>
+</form>

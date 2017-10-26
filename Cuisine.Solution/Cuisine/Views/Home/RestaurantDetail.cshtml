@@ -1,10 +1,22 @@
 @{
   Layout = "_Layout";
 }
-<h3>@Model.Name Details</h3>
-<p>Address: @Model.Address</p>
-<p>Phone Number: @Model.PhoneNumber</p>
-<p>Best Dish: @Model.BestDish</p>
+<h1>@Model["restaurant"].Name Details</h1>
+<p>Address: @Model["restaurant"].Address</p>
+<p>Phone Number: @Model["restaurant"].PhoneNumber</p>
+<p>Best Dish: @Model["restaurant"].BestDish</p>
 
-<p><a href="/cuisine/@Model.CuisineId/restaurant">Go Back</a></p>
+<h2>Reviews for @Model["restaurant"].Name</h2>
+@if(Model["review"].Count == 0)
+{
+  <p>There are no reviews yet</p>
+}
+@foreach(var review in Model["review"])
+{
+  <h3>@review.Title</h3>
+  <p>@review.Description</p>
+  <br>
+}
+<p><a href='/cuisine/@Model["restaurant"].CuisineId/restaurant/@Model["restaurant"].Id/review'>Add A Review</a></p>
+<p><a href='/cuisine/@Model["restaurant"].CuisineId'>Go Back</a></p>
 <p><a href="/">Return Home</a></p>
