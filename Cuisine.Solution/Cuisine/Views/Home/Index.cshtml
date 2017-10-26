@@ -1,16 +1,26 @@
 @{
   Layout = "_Layout";
 }
-<h1>Cuisine Types</h1>
 
-@if (@Model.Count == 0)
-{
-  <h3>No cuisine types have been added yet.</h3>
-}
+<div class="w3-container">
+  @* <h1>Northwest's Best Restaurants</h1> *@
+  <img id="wellbackgroud" src="/img/wellbackground.jpg" width="1300px" height="400px">
+</div>
 
-@foreach (var type in Model)
-{
-  <h3><a href='/cuisine/@type.Id'>@type.Name</a></h3>
-}
+<div class="well" id="bodytext" style="border:none">
+  <h1>Cuisine Types</h1>
 
-<p><a href='/cuisine'>Add cuisine type</a></p>
+  @if (@Model.Count == 0)
+  {
+    <h3>No cuisine types have been added yet.</h3>
+  }
+
+  @foreach (var type in Model)
+  {
+    <h3><a href='/cuisine/@type.Id'>@type.Name</a></h3>
+  }
+<br>
+
+<h4><a href='/cuisine'>Add cuisine type</a></h4>
+
+</div>

@@ -1,3 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Architects+Daughter');
+
 body {
-  font-family: sans-serif;
+  font-family: 'Architects Daughter', cursive;
+  letter-spacing: 3px;
+  background-image: url("/img/forest_trees.jpg");
+
+}
+
+.w3-container{
+  /*text-align: center;
+  font-weight: bold;
+  background-image: url("/img/wellbackground.jpg");
+  text-shadow: 4px;
+  font-size: 500px;*/
+  margin-left: -80px;
+
+}
+
+#wellbackground {
+  image-orientation: contain;
+  width: 300px;
+  height: 150px;
+}
+
+#bodytext:focus {
+  outline: none;
+
+}
+
+#bodytext {
+    background-color: rgba(175, 191, 207, 0.0);
+    text-align: center;
 }
